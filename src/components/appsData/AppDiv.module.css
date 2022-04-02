@@ -1,0 +1,48 @@
+.appData-div {
+    width: 60%;
+
+    margin: 2% auto;
+    padding: 2% 4%;
+
+    background-color: var(--primary-color);
+    border-radius: .8rem;
+    transition: .3s ease-in-out;
+}
+
+.appData-div:hover {
+    box-shadow: 7px 10px rgba(0, 0, 0, 0.438);
+    cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    font-size: 2rem;
+}
+
+.four {
+    text-align: right;
+}
+
+.four button {
+    font-size: 1rem;
+    padding: 3% 6%;
+    margin: 0 2%;
+
+    border-radius: .5rem;
+    border: none;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+.four button:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    cursor: pointer;
+}
+
+.passwordDiv {
+    font-size: 1.6rem;
+    padding-top: 2%;
+}

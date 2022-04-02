@@ -1,0 +1,56 @@
+nav {
+	background-color: var(--primary-color);
+	padding: 1.7% 3%;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	color: var(--bg-color);
+}
+
+.actionSection {
+	width: 20%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.logoutBtn {
+	background-color: var(--bg-color);
+	color: var(--font-color);
+	padding: 2% 10%;
+	font-size: 1.2rem;
+	font-weight: bold;
+
+	/* border: 1px solid var(--primary-color); */
+	border: none;
+	border-radius: .5rem;
+}
+
+.logoutBtn:hover {
+	/* border: 1px solid black; */
+	cursor: pointer;
+	background-color: var(--secondary-color);
+	color: var(--bg-color);
+}
+
+/* login btn styling. */
+.loginBtn {
+	background-color: var(--bg-color);
+	color: var(--font-color);
+	padding: 15% 50%;
+	font-size: 1.2rem;
+	font-weight: bold;
+
+	/* border: 1px solid var(--primary-color); */
+	border: none;
+	border-radius: .5rem;
+}
+
+.loginBtn:hover {
+	/* border: 1px solid black; */
+	cursor: pointer;
+	background-color: var(--secondary-color);
+	color: var(--bg-color);
+}
