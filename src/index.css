@@ -8,9 +8,11 @@
 
 :root {
 	--bg-color: #1C0C5B;
-	--font-color: #C996CC;
+	/* --font-color: #C996CC; */
+	--font-color: #ffffff;
 	--primary-color: #3D2C8D;
-	--secondary-color: #916BBF;
+	/* --secondary-color: #916BBF; */
+	--secondary-color: #adb5bd;
 }
 
 body {

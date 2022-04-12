@@ -1,0 +1,17 @@
+.msg-modal-div {
+	position: fixed;
+	top: 10vh;
+	left: 10vw;
+	width: 80%;
+	height: auto;
+
+	margin: 0 auto;
+
+	background-color: var(--bg-color);
+	border-radius: 10px;
+
+	padding: 2% 7%;
+	z-index: 1310;
+
+	transition: visibility 0s, opacity 1s linear;
+}

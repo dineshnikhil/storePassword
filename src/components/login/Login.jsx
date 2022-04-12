@@ -10,13 +10,30 @@ function Login() {
 
     const navigate = useNavigate();
     const userName = useRef();
+    const password = useRef();
 
 
     const dispatch = useDispatch();
-    const isLoggedIn = useSelector(state => state.isLoggedIn);
+    // const isLoggedIn = useSelector(state => state.loginSlice.isLoggedIn);
 
-    function submitHandler(event) {
+    async function submitHandler(event) {
         event.preventDefault();
+
+        //now sending the data to the backend.
+        const response = await fetch('http://localhost:8000/login', {
+            method: 'POST',
+            headers: {
+                'content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: userName.current.value,
+                password: password.current.value
+            })
+        });
+
+        const data = await response.json();
+
+        console.log(data);
 
         dispatch(loginActions.login());
         dispatch(loginActions.setUserName(userName.current.value));
@@ -26,7 +43,7 @@ function Login() {
 
   return (
     <div className={classes['login-form-div']}>
-        <h1>WellCome Back Login into your Accout</h1>
+        <h1>Hi, User Wellcome Back!</h1>
         <form onSubmit={submitHandler}>
             {/* username input field */}
             <input 
@@ -43,6 +60,7 @@ function Login() {
                 name="password" 
                 id="password" 
                 placeholder='password'
+                ref={password}
             />
             <br />
             {/* login submit button */}

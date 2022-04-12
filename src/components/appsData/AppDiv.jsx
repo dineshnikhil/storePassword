@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-// import copy method from react-copy-to-clipboard.
+// import copy method from copy-to-clipboard.
 import copy from 'copy-to-clipboard';
 // icons imports from font awesome icons.
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +20,11 @@ function AppDiv(props) {
   function passwordShowToggleHandler() {
     setIsShown(!isShown);
   }
-
+  // function for deleteing the app from array.
+  function deleteAppHandler() {
+    props.deleteHandler(props.data.appName);
+  }
+  // function to copy password to clipboard.
   function copyToClipboardHandler() {
     copy(props.data.password);
   }
@@ -45,7 +49,7 @@ function AppDiv(props) {
               <FontAwesomeIcon icon={faCopy} />
             </button>
             <button><FontAwesomeIcon icon={faPenToSquare} /></button>
-            <button><FontAwesomeIcon icon={faTrashCan} /></button>
+            <button onClick={deleteAppHandler}><FontAwesomeIcon icon={faTrashCan} /></button>
           </div>
         </div>
     </div>

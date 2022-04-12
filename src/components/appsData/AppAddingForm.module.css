@@ -1,47 +1,40 @@
-.login-form-div {
-	text-align: center;
-	background-color: var(--primary-color);
-	width: 40%;
+.appAdding-form-div {
+    background-color: var(--primary-color);
+    padding: 2%;
 
-	padding: 4%;
-	margin: 4% auto;
-	border-radius: 1rem;
+    border-radius: 1rem;
+	text-align: center;
 	box-shadow: 7px 7px rgba(0, 0, 0, 0.404);
 }
 
-.login-form-div h1 {
-	margin-bottom: 4%;
-}
+.appAdding-form-div input {
+    font-size: 1.3rem;
+	padding: 1% 2%;
+	margin: 0.5% 1%;
 
-.login-form-div input {
-	font-size: 1.6rem;
-	padding: 2% 4%;
-	margin: 2% auto;
-
-	width: 100%;
-
-	border-radius: 1rem;
+	border-radius: .5rem;
 	background-color: transparent;
 	border: 2px solid var(--font-color);
 }
 
-.login-form-div button {
-	padding: 3% 8%;
+.appAdding-form-div button {
+    padding: 0.7% 3%;
 	font-size: 1.3rem;
 	font-weight: bold;
 	margin-top: 1%;
-
-    width: 100%;
 
 	/* border: 1px solid var(--font-color); */
 	border: none;
 	background-color: var(--bg-color);
 	color: var(--font-color);
 	border-radius: .5rem;
+
+    display: block;
+    margin: 1% auto;
 }
 
-.login-form-div button:hover {
-	/* border: 1px solid black; */
+.appAdding-form-div button:hover {
+    /* border: 1px solid black; */
 	box-shadow: 5px 5px rgba(0, 0, 0, 0.404);
 	background-color: var(--secondary-color);
 	color: var(--bg-color);
