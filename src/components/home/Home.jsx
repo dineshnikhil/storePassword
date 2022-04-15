@@ -8,7 +8,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 function Home() {
   return (
     <div className={classes['home-section']}>
-        <h1>Protect your Passwords</h1>
+        <h1>🔒 Protect your Passwords</h1>
         <p>
           You'll never need to remember or type your passwords again.
           The Most Trusted Open Source Password Manager for Individuals. Stay more organized and safe with storePass...|

@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDom from 'react-dom';
 import { useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import classes from './MsgCard.module.css'
 import BackDrop from './BackDrop';
 import { msgCardSliceActions } from '../../store/msgCardShow-slice';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function MsgModal(props) {
 
@@ -15,8 +17,10 @@ function MsgModal(props) {
 
     return (
         <div className={classes['msg-modal-div']}>
-            <button onClick={closeHandler}>close</button>
-        {props.content}
+            <button className={classes.btnClose} onClick={closeHandler}><FontAwesomeIcon icon={faXmark} /></button>
+            <div className={classes['inner-div']}>
+                {props.content}
+            </div>
         </div>
     )
 }

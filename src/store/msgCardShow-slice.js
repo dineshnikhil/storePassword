@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const msgCardSlice = createSlice({
     name: 'msgCardSlice',
     initialState: {
-        isShow: true
+        isShow: false
     },
     reducers: {
         showToggle(state){

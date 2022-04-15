@@ -37,7 +37,7 @@ function UserPage() {
   ];
 
   const [appDataArray, setappDataArray] = useState(appData);  
-  const userName = useSelector(state => state.username);
+  const userName = useSelector(state => state.loginSlice.username);
 
     
 

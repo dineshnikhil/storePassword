@@ -21,9 +21,9 @@ function App() {
     <React.Fragment>
       <Nav />
       <main>
-      {isShow && <MsgCard>
-        <h1>hello world!</h1>
-      </MsgCard>}
+      {/* {isShow && <MsgCard>
+        <h1>Store your passwrods 🔑 and secure your informations from data attacks.</h1>
+      </MsgCard>} */}
       <Routes>
           <Route path='/' element={!isLoggedIn ? <Home /> : <UserPage />} />
           <Route path='/login' element={<Login />} />

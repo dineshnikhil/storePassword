@@ -1,8 +1,20 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import classes from './SignUpForm.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+
+import { msgCardSliceActions } from '../../store/msgCardShow-slice';
+import MsgCard from '../ui/MsgCard';
 
 function SignUpForm() {
+
+  const dispatch = useDispatch();
+  const isShow = useSelector(state => state.msgCardShowSlice.isShow)
+
+  const [msg, setMsg] = useState("");
 
   // userefs for form input fields.
   const username = useRef();
@@ -44,15 +56,23 @@ function SignUpForm() {
     email.current.value = "";
     password.current.value = "";
     actionPassword.current.value = "";
+
+    setMsg(data.status)
+    dispatch(msgCardSliceActions.showToggle());
   }
 
   return (
     <div className={classes['signup-form-div']}>
+      {isShow && <MsgCard>
+        <h1>{msg}😀</h1>
+        <button>login <FontAwesomeIcon icon={faRightToBracket} /></button>
+        </MsgCard>}
       <h1>Hi, Wellcome!</h1>
         <form onSubmit={createUserHandler}>
             {/* Username input field */}
             <input 
-              type="text" 
+              type="text"
+              required
               name="username" 
               id="username" 
               placeholder='Username'
@@ -60,7 +80,8 @@ function SignUpForm() {
             />
             {/* email input field */}
             <input 
-              type="email" 
+              type="email"
+              required
               name="email" 
               id="email" 
               placeholder='Email'
@@ -68,7 +89,8 @@ function SignUpForm() {
             />
             {/* password input field */}
             <input 
-              type="password" 
+              type="password"
+              required
               name="password" 
               d="password" 
               placeholder='Password' 
@@ -76,7 +98,8 @@ function SignUpForm() {
             />
             {/* actionPassword input field */}
             <input 
-              type="password" 
+              type="password"
+              required
               name="actionPassword" 
               id="actionPassword"  
               placeholder='ActionPassword'
