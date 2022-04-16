@@ -8,10 +8,13 @@ import classes from './Login.module.css';
 import { loginActions } from '../../store/login-slice';
 import { msgCardSliceActions } from '../../store/msgCardShow-slice';
 import MsgCard from '../ui/MsgCard';
+import Loading from '../ui/Loading';;
 
 function Login() {
 
     const [msg, setMsg] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const text = "Login"
 
     const navigate = useNavigate();
     const userName = useRef();
@@ -24,6 +27,7 @@ function Login() {
 
     async function submitHandler(event) {
         event.preventDefault();
+        setIsLoading(true);
 
         //now sending the data to the backend.
         const response = await fetch('http://localhost:8000/login', {
@@ -39,35 +43,37 @@ function Login() {
 
         const data = await response.json();
 
-        console.log(data);
+        // if the user is not found in the database.
+        if(data.status === "user not found") {
+            setMsg(data.status);
+            // displaying notification
+            dispatch(msgCardSliceActions.showToggle());
+            // clering the all input fields
+            userName.current.value = "";
+            password.current.value = "";
+            // loading to false
+            setIsLoading(false)
+        }
+        // if the enterd user password is worng.
+        else if (data.status === "entered password is worng!") {
+            setMsg(data.status);
+            // displaying the notification
+            dispatch(msgCardSliceActions.showToggle())
+            // reassing the value to empty of password field input.
+            password.current.value = ""
+            // loading is false
+            setIsLoading(false)
+        } 
+        // if the user is successfully anthenticated
+        else if(data.status === "user anthenticated!") {
+            // then we login the user
+            dispatch(loginActions.login());
+            // then we set uername in redux login slice.
+            dispatch(loginActions.setUserName(userName.current.value));
 
-        // dispatch(loginActions.login());
-        // navigate("/");
-
-        // if (data.status === "wrong password!") {
-        //     setMsg(data.status);
-        //     dispatch(msgCardSliceActions.showToggle())
-        //     password.current.value = ""
-        // } else if(data.status === "ok") {
-        //     dispatch(loginActions.login());
-        //     dispatch(loginActions.setUserName(userName.current.value));
-
-        //     navigate("/")
-        // }
-
-        // if (data.status === "ok") {
-        //     dispatch(loginActions.login());
-        //     dispatch(loginActions.setUserName(userName.current.value));
-
-        //     navigate("/")
-        // } else {
-        //     setMsg("invalid username or password");
-        //     dispatch(msgCardSliceActions.showToggle())
-        //     password.current.value = ""
-        //     userName.current.value = ""
-        // }
-
-        
+            // we navigation to the home page again.
+            navigate("/")
+        } 
     }
 
   return (
@@ -99,7 +105,7 @@ function Login() {
             <br />
             {/* login submit button */}
             <button type="submit">
-                Login
+                {isLoading ? <Loading /> : text}
             </button>
         </form>
     </div>
