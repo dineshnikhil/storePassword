@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 // for fontawesome icons.
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -8,13 +9,31 @@ import classes from './AppAddingForm.module.css'
 
 function AppAddingForm(props) {
 
+    const userId = useSelector(state => state.userSlice.id);
+
     var appName = useRef();
     var email = useRef();
     var password = useRef();
 
-    const submitHandler = (event) => {
+    async function submitHandler(event) {
         event.preventDefault();
+        // sending the data to the database
+        const response = await fetch('http://localhost:8000/addapp', {
+            method: 'POST',
+            headers: {
+                'content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId: userId,
+                appName: appName.current.value,
+                email: email.current.value,
+                password: password.current.value
+            })
+        });
 
+
+        const data = await response.json();
+        console.log(data);
         // passing the app data object to the UserPage.
         props.onAddApp({
             appName: appName.current.value,

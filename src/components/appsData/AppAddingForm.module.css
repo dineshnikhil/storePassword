@@ -1,6 +1,7 @@
 .appAdding-form-div {
     background-color: var(--primary-color);
     padding: 2%;
+	margin: 3% 0%;
 
     border-radius: 1rem;
 	text-align: center;

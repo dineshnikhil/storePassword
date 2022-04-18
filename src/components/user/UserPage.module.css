@@ -1,3 +1,7 @@
 .userPage-div {
-    padding: 7%;
+    padding: 3% 7%;
+}
+
+.userPage-div h3 {
+    text-align: center;
 }

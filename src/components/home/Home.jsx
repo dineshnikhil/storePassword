@@ -21,9 +21,9 @@ function Home() {
 
   return (
     <React.Fragment>
-      {isShow && <MsgCard>
+      {/* {isShow && <MsgCard>
         <h1>Store your passwrods 🔑 and secure your informations from data attacks.</h1>
-      </MsgCard>}
+      </MsgCard>} */}
     <div className={classes['home-section']}>
         <h1>🔒 Protect your Passwords</h1>
         <p>

@@ -11,14 +11,15 @@ import SignUpForm from './components/login/SignUpForm';
 
 function App() {
 
-  const isLoggedIn = useSelector(state => state.loginSlice.isLoggedIn);
+  // const isLoggedIn = useSelector(state => state.loginSlice.isLoggedIn);
+  const isAuthenticated = useSelector(state => state.userSlice.isAuthenticated);
 
   return (
     <React.Fragment>
       <Nav />
       <main>
       <Routes>
-          <Route path='/' element={!isLoggedIn ? <Home /> : <UserPage />} />
+          <Route path='/' element={!isAuthenticated ? <Home /> : <UserPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/createAccount' element={<SignUpForm />} />
       </Routes>

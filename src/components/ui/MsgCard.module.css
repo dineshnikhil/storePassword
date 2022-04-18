@@ -35,7 +35,7 @@ button:hover {
 	/* border: 1px solid black; */
 	box-shadow: 5px 5px rgba(0, 0, 0, 0.404);
 	background-color: var(--secondary-color);
-	color: var(--bg-color);
+	color: var(--primary-color);
 	cursor: pointer;
 }
 

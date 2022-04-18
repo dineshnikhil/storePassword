@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import classes from './Login.module.css';
 import { loginActions } from '../../store/login-slice';
+import { userSliceActions } from '../../store/user-slice';
 import { msgCardSliceActions } from '../../store/msgCardShow-slice';
 import MsgCard from '../ui/MsgCard';
 import Loading from '../ui/Loading';;
@@ -16,6 +17,7 @@ function Login() {
     const [isLoading, setIsLoading] = useState(false);
     const text = "Login"
 
+    // useing navigate method
     const navigate = useNavigate();
     const userName = useRef();
     const password = useRef();
@@ -67,9 +69,14 @@ function Login() {
         // if the user is successfully anthenticated
         else if(data.status === "user anthenticated!") {
             // then we login the user
-            dispatch(loginActions.login());
+            dispatch(userSliceActions.loginUser({
+                isAuthenticated: true,
+                username: data.data.username,
+                id: data.data._id,
+                apps: data.data.appsData
+            }));
             // then we set uername in redux login slice.
-            dispatch(loginActions.setUserName(userName.current.value));
+            // dispatch(loginActions.setUserName(userName.current.value));
 
             // we navigation to the home page again.
             navigate("/")

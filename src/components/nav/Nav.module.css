@@ -24,6 +24,8 @@ nav {
 	font-size: 1.2rem;
 	font-weight: bold;
 
+	margin-top: 0;
+
 	/* border: 1px solid var(--primary-color); */
 	border: none;
 	border-radius: .5rem;
@@ -57,4 +59,9 @@ nav {
 	cursor: pointer;
 	background-color: var(--secondary-color);
 	color: var(--bg-color);
+}
+
+
+.actionSection h3{
+	padding: 14px;
 }
