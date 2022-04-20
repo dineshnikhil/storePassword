@@ -30,10 +30,10 @@ function AppDiv(props) {
   }
 
   return (
-    <div className={classes['appData-div']} key={props.data.id}>
+    <div className={classes['appData-div']} key={props.data._id}>
         <div className={classes.grid}>
           {/* app name display */}
-          <div>{props.data.appName}</div>
+          <div>{props.data.appname}</div>
           {/* noting for present */}
           <div></div>
           {/* app password div */}

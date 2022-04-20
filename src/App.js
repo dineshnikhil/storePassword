@@ -19,7 +19,8 @@ function App() {
       <Nav />
       <main>
       <Routes>
-          <Route path='/' element={!isAuthenticated ? <Home /> : <UserPage />} />
+          <Route path='/' element={<Home />}/>
+          <Route path='/userpage' element={!isAuthenticated ? <h1>please login</h1> : <UserPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/createAccount' element={<SignUpForm />} />
       </Routes>

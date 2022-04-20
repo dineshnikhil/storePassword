@@ -9,12 +9,17 @@ import classes from './AppAddingForm.module.css'
 
 function AppAddingForm(props) {
 
+    // userid from react redux of userSlice
     const userId = useSelector(state => state.userSlice.id);
 
+    // refs for the app adding from.
     var appName = useRef();
     var email = useRef();
     var password = useRef();
 
+    // This is the app adding form handler function.
+    // 1.Here we are sending the data to the server
+    // 2.and receving the object with parameter status.
     async function submitHandler(event) {
         event.preventDefault();
         // sending the data to the database
@@ -25,22 +30,27 @@ function AppAddingForm(props) {
             },
             body: JSON.stringify({
                 userId: userId,
-                appName: appName.current.value,
+                appname: appName.current.value,
                 email: email.current.value,
                 password: password.current.value
             })
         });
 
-
+        // here we are waiting the response to come from the server.
         const data = await response.json();
-        console.log(data);
-        // passing the app data object to the UserPage.
-        props.onAddApp({
-            appName: appName.current.value,
-            email: email.current.value,
-            password: password.current.value
-        });
 
+        // if the status is ok then we are passing the status and app data to the userpage.jsx
+        if(data.status === "ok") {
+            // passing the app data object to the UserPage.
+            props.onAddApp({
+                status: "ok",
+                appName: appName.current.value,
+                email: email.current.value,
+                password: password.current.value
+            });
+        }
+
+        // Here after submiting the form we are reseting the input fields.
         appName.current.value = '';
         email.current.value = '';
         password.current.value = '';

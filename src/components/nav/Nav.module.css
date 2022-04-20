@@ -65,3 +65,8 @@ nav {
 .actionSection h3{
 	padding: 14px;
 }
+
+.username {
+	color: var(--font-color);
+	text-decoration: none;
+}

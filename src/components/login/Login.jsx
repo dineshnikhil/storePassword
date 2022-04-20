@@ -79,13 +79,13 @@ function Login() {
             // dispatch(loginActions.setUserName(userName.current.value));
 
             // we navigation to the home page again.
-            navigate("/")
+            navigate("/userpage")
         } 
     }
 
   return (
     <div className={classes['login-form-div']}>
-        {isShow && <MsgCard>
+        {!isShow && <MsgCard>
             <h1>{msg}</h1>
             </MsgCard>}
         <h1>Hi, User Wellcome Back!</h1>

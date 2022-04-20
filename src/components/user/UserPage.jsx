@@ -1,59 +1,46 @@
 import React from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import classes from './UserPage.module.css'
 import AppDiv from '../appsData/AppDiv';
 import AppAddingForm from '../appsData/AppAddingForm';
+import { userSliceActions } from '../../store/user-slice';
 
 function UserPage() {
 
+  const dispatch = useDispatch();
+
+  // here we are fetching the appdata array form userSlice redux.
   const appData = useSelector(state => state.userSlice.apps);
 
-  // const appData = [
-  //   {
-  //     id: '1',
-  //     appName: 'google',
-  //     password: 'pass1'
-  //   },
-  //   {
-  //       id: '2',
-  //       appName: 'facebook',
-  //       password: 'pass1'
-  //   },
-  //   {
-  //       id: '3',
-  //       appName: 'instagram',
-  //       password: 'pass1'
-  //   },
-  //   {
-  //       id: '4',
-  //       appName: 'snapchat',
-  //       password: 'pass4'
-  //   },
-  //   {
-  //       id: '5',
-  //       appName: 'grow',
-  //       password: 'pass1'
-  //   }
-  // ];
-
+  // appdataarray usestate and it is set to app data.
   const [appDataArray, setappDataArray] = useState(appData);
+  // here we are username and userId form userSlice redux.
   const userName = useSelector(state => state.userSlice.username);
   const userId = useSelector(state => state.userSlice.id);
 
-  console.log(appDataArray);
-  console.log(userId);
 
-  // Here we have to send the app data to the database.
-  // and fetche the data from the database also.
-  const onAddAppHandler = (item) => {
-   console.log({
-     userId: userId,
-     appName: item.appName,
-     password: item.password,
-     email: item.email
-   });
+  // here iam fetching the data form server through the userId
+  // through the userId we that user appData array only
+  // and this newly fetched array is updated with usestate appdataArray.
+  async function onAddAppHandler(item) {
+
+    // from the data we pass from appAddingForm if the status is ok then -> fetch the appsData of the perticular user through the userId.
+    if(item.status === "ok") {
+      // here we are generating the url with userId we have.
+      var url = "http://localhost:8000/apps/" + userId;
+      // again we are fetching the appsData array from database freshlly.
+      const response = await fetch(url);
+
+      const data = await response.json();
+
+      // updating the usestate variable here.
+      setappDataArray(data.apps);
+      // updating the apps array from the userSlice redux dispatch method.
+      dispatch(userSliceActions.updateApps(data.apps))
+    }
+    
   }
 
   const deleteAppHandler = (appName) => {
@@ -66,10 +53,13 @@ function UserPage() {
 
   return (
     <div className={classes['userPage-div']}>
+      {/* Here fist we are displaying the welcome note with username */}
         <h1>Wellcome {userName}.!</h1>
+        {/* And added the AppAddingForm form here and pass the function to recieve the data from the  appAddingForm element */}
         <AppAddingForm onAddApp={onAddAppHandler} />
+        {/* Here we are checking for the appDataArray if length is zero then show no apps found msg or else show apps through the map method with AppDiv */}
         {appDataArray.length === 0 ? <h3>no apps found yet!</h3> : appDataArray.map(item => {
-          return <AppDiv data={item} key={item.id} deleteHandler={deleteAppHandler} />
+          return <AppDiv data={item} key={item._id} deleteHandler={deleteAppHandler} />
         })}
     </div>
   )

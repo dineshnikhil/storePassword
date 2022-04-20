@@ -63,7 +63,7 @@ function SignUpForm() {
 
   return (
     <div className={classes['signup-form-div']}>
-      {isShow && <MsgCard>
+      {!isShow && <MsgCard>
         <h1>{msg}😀</h1>
         <button>login <FontAwesomeIcon icon={faRightToBracket} /></button>
         </MsgCard>}
