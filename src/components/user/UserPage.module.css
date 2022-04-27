@@ -5,3 +5,10 @@
 .userPage-div h3 {
     text-align: center;
 }
+
+.appsCardDiv {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

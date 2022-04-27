@@ -8,6 +8,12 @@ const msgCardSlice = createSlice({
     reducers: {
         showToggle(state){
             state.isShow = !state.isShow;
+        },
+        showMsgCard(state) {
+            state.isShow = true;
+        },
+        closeMsgCard(state) {
+            state.isShow = false;
         }
     }
 });

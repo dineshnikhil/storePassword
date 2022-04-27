@@ -1,19 +1,19 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classes from './Home.module.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import MsgCard from '../ui/MsgCard';
+// import MsgCard from '../ui/MsgCard';
 import { msgCardSliceActions } from '../../store/msgCardShow-slice';
-import Loading from '../ui/Loading';
+// import Loading from '../ui/Loading';
 
 function Home() {
 
   const dispatch = useDispatch();
-  const isShow = useSelector(state => state.msgCardShowSlice.isShow);
+  // const isShow = useSelector(state => state.msgCardShowSlice.isShow);
 
   useEffect(() => {
     dispatch(msgCardSliceActions.showToggle());

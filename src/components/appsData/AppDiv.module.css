@@ -1,7 +1,7 @@
 .appData-div {
-    width: 60%;
+    width: 30%;
 
-    margin: 2% auto;
+    margin: 1%;
     padding: 2% 4%;
 
     background-color: var(--primary-color);
@@ -16,13 +16,25 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 
     font-size: 2rem;
 }
 
+.appInfoDiv h2{
+    font-size: 2rem;
+}
+
+.appInfoDiv h4 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-top: 2%;
+}
+
 .four {
-    text-align: right;
+    text-align: center;
+
+    margin-top: 4%;
 }
 
 .four button {
@@ -34,6 +46,7 @@
     border: none;
     background-color: var(--bg-color);
     color: var(--font-color);
+    transition: .3s ease-in-out;
 }
 
 .four button:hover {

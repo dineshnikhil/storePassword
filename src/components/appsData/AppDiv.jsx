@@ -11,6 +11,7 @@ import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
 import classes from './AppDiv.module.css';
+import { Link } from 'react-router-dom';
 
 function AppDiv(props) {
 
@@ -22,7 +23,11 @@ function AppDiv(props) {
   }
   // function for deleteing the app from array.
   function deleteAppHandler() {
-    props.deleteHandler(props.data.appName);
+    props.deleteHandler({
+      id: props.data._id,
+      appname: props.data.appname,
+      email: props.data.email,
+    });
   }
   // function to copy password to clipboard.
   function copyToClipboardHandler() {
@@ -33,12 +38,10 @@ function AppDiv(props) {
     <div className={classes['appData-div']} key={props.data._id}>
         <div className={classes.grid}>
           {/* app name display */}
-          <div>{props.data.appname}</div>
-          {/* noting for present */}
-          <div></div>
-          {/* app password div */}
-          <div className={classes.passwordDiv}>
-            {!isShown ? <p>.............</p> : <p>{props.data.password}</p>}
+          <div className={classes.appInfoDiv}>
+            <h2>{props.data.appname}</h2>
+            <h4>{props.data.email}</h4>
+            {!isShown ? <p className={classes.passwordDiv}>.............</p> : <p className={classes.passwordDiv}>{props.data.password}</p>}
           </div>
           {/* action like edit and delete div */}
           <div className={classes.four}>
@@ -48,7 +51,7 @@ function AppDiv(props) {
             <button onClick={copyToClipboardHandler}>
               <FontAwesomeIcon icon={faCopy} />
             </button>
-            <button><FontAwesomeIcon icon={faPenToSquare} /></button>
+            <Link to={`/app-edit/${props.data._id}`}><button><FontAwesomeIcon icon={faPenToSquare} /></button></Link>
             <button onClick={deleteAppHandler}><FontAwesomeIcon icon={faTrashCan} /></button>
           </div>
         </div>

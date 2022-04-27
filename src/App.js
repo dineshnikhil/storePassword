@@ -8,6 +8,7 @@ import Home from './components/home/Home';
 import Login from './components/login/Login';
 import UserPage from './components/user/UserPage';
 import SignUpForm from './components/login/SignUpForm';
+import AppEditPage from './components/appEditPage/AppEditPage';
 
 function App() {
 
@@ -20,9 +21,11 @@ function App() {
       <main>
       <Routes>
           <Route path='/' element={<Home />}/>
+          {/* Here we are verifing the user is authenticated or not. */}
           <Route path='/userpage' element={!isAuthenticated ? <h1>please login</h1> : <UserPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/createAccount' element={<SignUpForm />} />
+          <Route path='/app-edit/:id' element={<AppEditPage />} />
       </Routes>
       </main>
     </React.Fragment>

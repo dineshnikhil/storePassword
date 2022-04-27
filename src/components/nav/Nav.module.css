@@ -70,3 +70,7 @@ nav {
 	color: var(--font-color);
 	text-decoration: none;
 }
+
+.modeIconBtn {
+	margin-top: 0;
+}

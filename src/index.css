@@ -6,14 +6,50 @@
 	box-sizing: border-box;
 }
 
-:root {
+/* :root {
 	--bg-color: #1C0C5B;
-	/* --font-color: #C996CC; */
 	--font-color: #ffffff;
 	--primary-color: #3D2C8D;
-	/* --secondary-color: #916BBF; */
 	--secondary-color: #adb5bd;
+} */
+
+/* By default we have the dark mode in website. */
+:root {
+	--bg-color: #0d1b2a;
+	--font-color: #e0e1dd;
+	--primary-color: #1b263b;
+	--secondary-color: #415a77;
 }
+
+/* Here we are changing colors into the light mode. */
+[data-theme = "light"] {
+	--bg-color: #e0e1dd;
+	--font-color: #0d1b2a;
+	--primary-color: #778da9;
+	--secondary-color: #415a77;
+}
+
+/* This the styling of the scrool bar */
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: var(--primary-color); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: var(--secondary-color); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+  }
+
 
 body {
 	background-color: var(--bg-color);

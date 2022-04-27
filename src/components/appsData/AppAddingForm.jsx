@@ -38,7 +38,7 @@ function AppAddingForm(props) {
 
         // here we are waiting the response to come from the server.
         const data = await response.json();
-
+        console.log(data);
         // if the status is ok then we are passing the status and app data to the userpage.jsx
         if(data.status === "ok") {
             // passing the app data object to the UserPage.
