@@ -53,7 +53,7 @@ function Nav() {
 
   return (
     <nav>
-      <h1><Link to="/"  className={classes.logo}>storePass...|<FontAwesomeIcon icon={faFolder} /></Link></h1>
+      <h1><Link to="/"  className={classes.logo}>storePass..</Link></h1>
       <div className={classes.actionSection}>
         <h3><Link to="/userpage" className={classes.username}>{userName}</Link></h3>
         {isAuthenticated ? <button className={classes.logoutBtn} onClick={logoutHandler}>logout <FontAwesomeIcon icon={faRightFromBracket} /></button> : <Link to="/login"><button className={classes.loginBtn}>login <FontAwesomeIcon icon={faRightToBracket} /></button></Link>}

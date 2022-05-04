@@ -1,11 +1,20 @@
 .home-section {
-	text-align: center;
-
+	/* text-align: center; */
+	display: flex;
 	padding: 7% 15%;
 }
 
+.homeOneDiv {
+	width: 50%;
+	padding: 6% 1%;
+}
+
+.homeTwoDiv {
+	width: 50%;
+}
+
 .home-section h1 {
-	font-size: 3rem;
+	font-size: 2rem;
 }
 
 .home-section p {
@@ -19,8 +28,8 @@
 }
 
 .createBtn {
-	padding: 1% 3%;
-	font-size: 1.5rem;
+	padding: 3% 5%;
+	font-size: 1.2rem;
 	font-weight: bold;
 
 	/* border: 1px solid var(--font-color); */
@@ -31,7 +40,6 @@
 }
 
 .createBtn:hover {
-	/* border: 1px solid black; */
 	box-shadow: 5px 5px rgba(0, 0, 0, 0.404);
 	background-color: var(--secondary-color);
 	color: var(--bg-color);
@@ -41,4 +49,41 @@
 .note {
 	font-size: 1rem;
 	margin-top: 1%;
+}
+
+/* ================ about section ============== */
+.aboutSection {
+	padding: 3% 12% 7% 12%;
+	text-align: center;
+}
+.aboutDiv {
+	display: flex;
+	margin-top: 4%;
+}
+
+.aboutDiv h3 {
+	font-size: 1.2rem;
+	margin-bottom: 4%;
+}
+
+.aboutDiv p {
+	opacity: 50%;
+	font-weight: normal;
+}
+
+.aboutDivs {
+	background-color: var(--primary-color);
+	border-radius: 2%;
+	margin: 1%;
+	padding: 3%;
+
+	width: 33%;
+	transition: .3s ease-in-out;
+}
+
+.aboutDivs:hover {
+	cursor: pointer;
+	background-color: var(--secondary-color);
+	box-shadow: 10px 10px rgba(0, 0, 0, 0.404);
+	color: var(--bg-color);
 }

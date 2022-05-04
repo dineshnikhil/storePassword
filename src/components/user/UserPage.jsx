@@ -23,6 +23,7 @@ function UserPage() {
 
   useEffect(() => {
     dispatch(msgCardSliceActions.closeMsgCard());
+    fect_updated_apps_list();
   }, []);
 
   
@@ -94,7 +95,7 @@ function UserPage() {
     const data = await response.json();
 
     if (data.status === "successfully deleted the app.") {
-      setDeleteMsg("app deleted successfully!");
+      setDeleteMsg("app deleted 🗑️ successfully!");
       fect_updated_apps_list();
     } else {
       setDeleteMsg("something went worng!")

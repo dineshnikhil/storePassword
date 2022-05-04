@@ -1,14 +1,17 @@
 nav {
-	background-color: var(--primary-color);
+	background-color: var(--bg-color);
 	padding: 1% 3%;
 
 	display: flex;
 	justify-content: space-between;
-	box-shadow: 5px 5px rgba(0, 0, 0, 0.404);
+	border-bottom: 1px solid var(--secondary-color);
 }
 
 .logo {
-	color: var(--bg-color);
+	color: var(--font-color);
+	font-family: 'Bangers', cursive;
+	letter-spacing: 3px;
+	text-decoration: none;
 }
 
 .actionSection {
@@ -18,7 +21,7 @@ nav {
 }
 
 .logoutBtn {
-	background-color: var(--bg-color);
+	background-color: var(--primary-color);
 	color: var(--font-color);
 	padding: 2% 10%;
 	font-size: 1.2rem;
@@ -26,13 +29,11 @@ nav {
 
 	margin-top: 0;
 
-	/* border: 1px solid var(--primary-color); */
 	border: none;
 	border-radius: .5rem;
 }
 
 .logoutBtn:hover {
-	/* border: 1px solid black; */
 	box-shadow: 5px 5px rgba(0, 0, 0, 0.404);
 	cursor: pointer;
 	background-color: var(--secondary-color);
@@ -41,20 +42,18 @@ nav {
 
 /* login btn styling. */
 .loginBtn {
-	background-color: var(--bg-color);
+	background-color: var(--primary-color);
 	color: var(--font-color);
 	padding: 15% 10%;
 	width: 150%;
 	font-size: 1.2rem;
 	font-weight: bold;
 
-	/* border: 1px solid var(--primary-color); */
 	border: none;
 	border-radius: .5rem;
 }
 
 .loginBtn:hover {
-	/* border: 1px solid black; */
 	box-shadow: 5px 5px rgba(0, 0, 0, 0.404);
 	cursor: pointer;
 	background-color: var(--secondary-color);

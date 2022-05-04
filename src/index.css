@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 * {
 	padding: 0;
@@ -13,12 +14,20 @@
 	--secondary-color: #adb5bd;
 } */
 
-/* By default we have the dark mode in website. */
+/* By default we have the dark mode in website.
 :root {
 	--bg-color: #0d1b2a;
 	--font-color: #e0e1dd;
 	--primary-color: #1b263b;
 	--secondary-color: #415a77;
+} */
+
+/* By default we have the dark mode in website. */
+:root {
+	--bg-color: #1B262C;
+	--font-color: #BBE1FA;
+	--primary-color: #0F4C75;
+	--secondary-color: #3282B8;
 }
 
 /* Here we are changing colors into the light mode. */

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import classes from './SignUpForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import { msgCardSliceActions } from '../../store/msgCardShow-slice';
 import MsgCard from '../ui/MsgCard';
@@ -64,8 +65,8 @@ function SignUpForm() {
   return (
     <div className={classes['signup-form-div']}>
       {!isShow && <MsgCard>
-        <h1>{msg}😀</h1>
-        <button>login <FontAwesomeIcon icon={faRightToBracket} /></button>
+        <h1>{msg}😀.</h1>
+        <Link to='/login'><button>login <FontAwesomeIcon icon={faRightToBracket} /></button></Link>
         </MsgCard>}
       <h1>Hi, Wellcome!</h1>
         <form onSubmit={createUserHandler}>

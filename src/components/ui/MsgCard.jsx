@@ -12,7 +12,7 @@ function MsgModal(props) {
 
     const dispatch = useDispatch();
     function closeHandler() {
-        dispatch(msgCardSliceActions.showToggle());
+        dispatch(msgCardSliceActions.closeMsgCard());
     }
 
     return (

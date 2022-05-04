@@ -11,6 +11,7 @@ function AppAddingForm(props) {
 
     // userid from react redux of userSlice
     const userId = useSelector(state => state.userSlice.id);
+    const apps = useSelector(state => state.userSlice.apps)
 
     // refs for the app adding from.
     var appName = useRef();
@@ -22,6 +23,15 @@ function AppAddingForm(props) {
     // 2.and receving the object with parameter status.
     async function submitHandler(event) {
         event.preventDefault();
+
+        if (apps.find(function(ele) {
+            return ele.appname === appName.current.value;
+        })) {
+            console.log("element found!");
+        } else {
+            console.log("element not found!");
+        }
+        
         // sending the data to the database
         const response = await fetch('http://localhost:8000/addapp', {
             method: 'POST',

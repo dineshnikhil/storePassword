@@ -49,7 +49,7 @@ function Login() {
         if(data.status === "user not found") {
             setMsg(data.status);
             // displaying notification
-            dispatch(msgCardSliceActions.showToggle());
+            dispatch(msgCardSliceActions.showMsgCard());
             // clering the all input fields
             userName.current.value = "";
             password.current.value = "";
@@ -60,7 +60,7 @@ function Login() {
         else if (data.status === "entered password is worng!") {
             setMsg(data.status);
             // displaying the notification
-            dispatch(msgCardSliceActions.showToggle())
+            dispatch(msgCardSliceActions.showMsgCard())
             // reassing the value to empty of password field input.
             password.current.value = ""
             // loading is false
@@ -85,7 +85,7 @@ function Login() {
 
   return (
     <div className={classes['login-form-div']}>
-        {!isShow && <MsgCard>
+        {isShow && <MsgCard>
             <h1>{msg}</h1>
             </MsgCard>}
         <h1>Hi, User Wellcome Back!</h1>
