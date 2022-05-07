@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import classes from './UserPage.module.css'
 import AppDiv from '../appsData/AppDiv';
@@ -47,26 +48,9 @@ function UserPage() {
     const data = await response.json();
     console.log(data.status);
     // updating the usestate variable here.
-    setappDataArray(data.apps);
+    setappDataArray(data.apps.reverse());
     // updating the apps array from the userSlice redux dispatch method.
     dispatch(userSliceActions.updateApps(data.apps))
-  }
-
-
-
-  // =======================================================================
-  // =================== App Data Adding the function Handler ==============
-  // =======================================================================
-  // here iam fetching the data form server through the userId
-  // through the userId we that user appData array only
-  // and this newly fetched array is updated with usestate appdataArray.
-  async function onAddAppHandler(item) {
-
-    // from the data we pass from appAddingForm if the status is ok then -> fetch the appsData of the perticular user through the userId.
-    if(item.status === "ok") {
-      fect_updated_apps_list();
-    }
-    
   }
 
   // =======================================================================
@@ -116,7 +100,10 @@ function UserPage() {
       {/* Here fist we are displaying the welcome note with username */}
         <h1>Wellcome {userName}.!</h1>
         {/* And added the AppAddingForm form here and pass the function to recieve the data from the  appAddingForm element */}
-        <AppAddingForm onAddApp={onAddAppHandler} />
+        {/* <AppAddingForm onAddApp={onAddAppHandler} /> */}
+        <Link to="/app-add">
+          <button>add app</button>
+        </Link>
         {/* Here we are checking for the appDataArray if length is zero then show no apps found msg or else show apps through the map method with AppDiv */}
         <div className={classes.appsCardDiv}>
           {appDataArray.length === 0 ? <h3>no apps found yet!</h3> : appDataArray.map(item => {

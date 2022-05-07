@@ -1,17 +1,26 @@
 import React from 'react';
 import { useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 // for fontawesome icons.
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { msgCardSliceActions } from '../../store/msgCardShow-slice';
+import MsgCard from '../ui/MsgCard';
 
 import classes from './AppAddingForm.module.css'
 
 function AppAddingForm(props) {
 
+    const [msg, setMsg] = useState("");
     // userid from react redux of userSlice
     const userId = useSelector(state => state.userSlice.id);
-    const apps = useSelector(state => state.userSlice.apps)
+    const apps = useSelector(state => state.userSlice.apps);
+    // msg card show variable
+    const isShow = useSelector(state => state.msgCardShowSlice.isShow);
+    // dispatching the redux functions.
+    const dispatch = useDispatch();
 
     // refs for the app adding from.
     var appName = useRef();
@@ -24,55 +33,63 @@ function AppAddingForm(props) {
     async function submitHandler(event) {
         event.preventDefault();
 
+        // here we are checking if the app already exits or not
         if (apps.find(function(ele) {
-            return ele.appname === appName.current.value;
+            return ele.appname.toLowerCase() === appName.current.value.toLowerCase();
         })) {
-            console.log("element found!");
+            // if we found the app
+            // console.log("element found!");
+            setMsg("app is already exists in your library.");
+            dispatch(msgCardSliceActions.showMsgCard());
+            appName.current.value = "";
+            email.current.value = "";
+            password.current.value = "";
         } else {
-            console.log("element not found!");
-        }
-        
-        // sending the data to the database
-        const response = await fetch('http://localhost:8000/addapp', {
-            method: 'POST',
-            headers: {
-                'content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                userId: userId,
-                appname: appName.current.value,
-                email: email.current.value,
-                password: password.current.value
-            })
-        });
-
-        // here we are waiting the response to come from the server.
-        const data = await response.json();
-        console.log(data);
-        // if the status is ok then we are passing the status and app data to the userpage.jsx
-        if(data.status === "ok") {
-            // passing the app data object to the UserPage.
-            props.onAddApp({
-                status: "ok",
-                appName: appName.current.value,
-                email: email.current.value,
-                password: password.current.value
+            // if we not found the app then send data to the backend
+            // sending the data to the database
+            const response = await fetch('http://localhost:8000/addapp', {
+                method: 'POST',
+                headers: {
+                    'content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: userId,
+                    appname: appName.current.value,
+                    email: email.current.value,
+                    password: password.current.value
+                })
             });
+            // here we are waiting the response to come from the server.
+            const data = await response.json();
+
+            if(data.status === 'ok') {
+                setMsg("app is added the library");
+                dispatch(msgCardSliceActions.showMsgCard());
+            } else {
+                setMsg("something went worng");
+                dispatch(msgCardSliceActions.showMsgCard())
+            };
+            
+            // Here after submiting the form we are reseting the input fields.
+            appName.current.value = '';
+            email.current.value = '';
+            password.current.value = '';
         }
 
-        // Here after submiting the form we are reseting the input fields.
-        appName.current.value = '';
-        email.current.value = '';
-        password.current.value = '';
     }
 
 
   return (
     <div className={classes['appAdding-form-div']}>
+        {isShow && <MsgCard>
+            <h1>{msg}</h1>
+            <Link to="/userpage"><button>Go to UserPage</button></Link>
+            </MsgCard>}
         <form onSubmit={submitHandler}>
             {/* App Name input feild */}
             <input 
                 type="text" 
+                required
                 name="appName" 
                 id="appName"
                 placeholder='AppName'
@@ -80,7 +97,8 @@ function AppAddingForm(props) {
             />
             {/* Email input feild */}
             <input 
-                type="email" 
+                type="email"
+                required 
                 name="email" 
                 id="email"
                 placeholder='Email'
@@ -89,6 +107,7 @@ function AppAddingForm(props) {
             {/* Password input feild */}
             <input 
                 type="password" 
+                required
                 name="password" 
                 id="password"
                 placeholder='Password'

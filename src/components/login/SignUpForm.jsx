@@ -59,12 +59,12 @@ function SignUpForm() {
     actionPassword.current.value = "";
 
     setMsg(data.status)
-    dispatch(msgCardSliceActions.showToggle());
+    dispatch(msgCardSliceActions.showMsgCard());
   }
 
   return (
     <div className={classes['signup-form-div']}>
-      {!isShow && <MsgCard>
+      {isShow && <MsgCard>
         <h1>{msg}😀.</h1>
         <Link to='/login'><button>login <FontAwesomeIcon icon={faRightToBracket} /></button></Link>
         </MsgCard>}
