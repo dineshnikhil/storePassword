@@ -7,6 +7,8 @@
     background-color: var(--primary-color);
     border-radius: .8rem;
     transition: .3s ease-in-out;
+
+    position: relative;
 }
 
 .appData-div:hover {
@@ -33,14 +35,32 @@
 
 .four {
     text-align: center;
+    display: none;
+    /* margin-top: 4%; */
+    padding-top: 7%;
 
-    margin-top: 4%;
+    width: 25%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.252);
+
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    border-radius: .8rem;
+
+    transition: .3s ease-in-out;
+    animation: slide-left .5s ease-out forwards;
+}
+
+.appData-div:hover .four {
+    display: block;
 }
 
 .four button {
-    font-size: 1rem;
-    padding: 3% 6%;
-    margin: 0 2%;
+    font-size: 1.1rem;
+    padding: 5% 8%;
+    margin: 0 2.5%;
 
     border-radius: .5rem;
     border: none;
@@ -59,4 +79,15 @@
 .passwordDiv {
     font-size: 1.2rem;
     padding-top: 2%;
+}
+
+@keyframes slide-left {
+	from {
+		opacity: 0;
+		transform: translateX(1.5rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }

@@ -28,6 +28,13 @@
   color: #61dafb;
 }
 
+/* ================ footer section =========== */
+.footerSection {
+	padding: 1%;
+	text-align: center;
+	background-color: var(--secondary-color);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

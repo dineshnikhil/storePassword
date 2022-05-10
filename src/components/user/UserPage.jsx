@@ -32,9 +32,15 @@ function UserPage() {
   const [appid, setAppid] = useState("");
   // appdataarray usestate and it is set to app data.
   const [appDataArray, setappDataArray] = useState(appData);
+  // search state is here.
+  const [search, setSearch] = useState("");
   // delete msg state.
   const [deleteMsg, setDeleteMsg] = useState("");
   const [isLoading, setisLoading] = useState(false);
+
+  function searchHandler(event) {
+    setSearch(event.target.value);
+  }
   
   // ==========================================================================
   // ============================ fetching the updated apps list ==============
@@ -48,6 +54,7 @@ function UserPage() {
     const data = await response.json();
     console.log(data.status);
     // updating the usestate variable here.
+    // Here i am reversing the array elements for better user experiance.
     setappDataArray(data.apps.reverse());
     // updating the apps array from the userSlice redux dispatch method.
     dispatch(userSliceActions.updateApps(data.apps))
@@ -86,6 +93,11 @@ function UserPage() {
     }
   }
 
+  // filltering the apps based on the search
+  const filteredApps = appDataArray.filter(app => {
+    return app.appname.toLowerCase().includes(search.toLowerCase());
+  })
+
   return (
     <React.Fragment>
     {isShow && <MsgCard>
@@ -101,12 +113,16 @@ function UserPage() {
         <h1>Wellcome {userName}.!</h1>
         {/* And added the AppAddingForm form here and pass the function to recieve the data from the  appAddingForm element */}
         {/* <AppAddingForm onAddApp={onAddAppHandler} /> */}
-        <Link to="/app-add">
-          <button>add app</button>
-        </Link>
+        {/* Here we are putting the search bar and add app button */}
+        <div className={classes.userActionDiv}>
+          <input type="search" name="appname" id="appSearch" placeholder='search your app' onChange={searchHandler} />
+          <Link to="/app-add" className={classes.appAddBtn}>
+            <button>add app</button>
+          </Link>
+        </div>
         {/* Here we are checking for the appDataArray if length is zero then show no apps found msg or else show apps through the map method with AppDiv */}
         <div className={classes.appsCardDiv}>
-          {appDataArray.length === 0 ? <h3>no apps found yet!</h3> : appDataArray.map(item => {
+          {filteredApps.length === 0 ? <h3>no apps found yet!</h3> : filteredApps.map(item => {
             return <AppDiv data={item} key={item._id} deleteHandler={deleteAppHandler} />
           })}
         </div>

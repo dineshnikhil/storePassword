@@ -12,3 +12,37 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.userActionDiv {
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.userActionDiv button {
+    margin: 0;
+    padding: 6% 18%;
+}
+
+.appAddBtn {
+    width: 15%;
+    padding: 0;
+}
+
+.userActionDiv input {
+    font-size: 1rem;
+	padding: 1% 2%;
+	margin: 1%;
+	width: 50%;
+
+    color: var(--font-color);
+	border-radius: .5rem;
+	background-color: transparent;
+	border: 4px solid var(--primary-color);
+}
+
+.userActionDiv input:focus {
+    border: 4px solid var(--secondary-color);
+	outline: none;
+}

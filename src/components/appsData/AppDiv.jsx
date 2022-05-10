@@ -41,7 +41,7 @@ function AppDiv(props) {
           <div className={classes.appInfoDiv}>
             <h2>{props.data.appname}</h2>
             <h4>{props.data.email}</h4>
-            {!isShown ? <p className={classes.passwordDiv}>.............</p> : <p className={classes.passwordDiv}>{props.data.password}</p>}
+            {!isShown ? <p className={classes.passwordDiv}>************</p> : <p className={classes.passwordDiv}>{props.data.password}</p>}
           </div>
           {/* action like edit and delete div */}
           <div className={classes.four}>

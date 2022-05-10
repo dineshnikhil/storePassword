@@ -51,6 +51,12 @@
 	margin-top: 1%;
 }
 
+/* ================== Middle Section ================= */
+.middleSection {
+	padding: 7% 15%;
+	background-color: var(--primary-color);
+}
+
 /* ================ about section ============== */
 .aboutSection {
 	padding: 3% 12% 7% 12%;
@@ -86,4 +92,11 @@
 	background-color: var(--secondary-color);
 	box-shadow: 10px 10px rgba(0, 0, 0, 0.404);
 	color: var(--bg-color);
+}
+
+/* ================ footer section =========== */
+.footerSection {
+	padding: 1%;
+	text-align: center;
+	background-color: var(--secondary-color);
 }

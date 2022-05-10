@@ -91,6 +91,7 @@ function Login() {
         <h1>Hi, User Wellcome Back!</h1>
         <form onSubmit={submitHandler}>
             {/* username input field */}
+            <label>userName</label>
             <input 
                 type="text"
                 required
@@ -101,6 +102,7 @@ function Login() {
             />
             <br />
             {/* password input field */}
+            <label>password</label>
             <input 
                 type="password"
                 required

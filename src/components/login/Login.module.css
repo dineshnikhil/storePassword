@@ -30,6 +30,10 @@
 	outline: none;
 }
 
+.login-form-div label {
+	text-align: left;
+}
+
 .login-form-div button {
 	padding: 3% 8%;
 	font-size: 1.3rem;

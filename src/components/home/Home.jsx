@@ -30,6 +30,7 @@ function Home() {
       {/* {isShow && <MsgCard>
         <h1>Store your passwrods 🔑 and secure your informations from data attacks.</h1>
       </MsgCard>} */}
+    {/* ================== Home section =================  */}
     <div className={classes['home-section']}>
       <div className={classes.homeOneDiv}>
         <h1>Secure and remember all your passwords… with a storePass..</h1>
@@ -44,6 +45,12 @@ function Home() {
         <img src={image} />
       </div>
     </div>
+    {/* ================= middle Section ============ */}
+    <div className={classes.middleSection}>
+      <h1>some Heading here.</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita accusantium modi atque recusandae quam odio dolor asperiores ex. Ipsam eaque nobis ducimus tenetur nisi? Necessitatibus quos veniam nam doloribus aperiam!</p>
+    </div>
+    {/*================ Features section ================= */}
     <div className={classes.aboutSection}>
       <h1>Why choose storePass.. for password management?</h1>
       <div className={classes.aboutDiv}>
@@ -64,6 +71,10 @@ function Home() {
         </div>
       </div>
     </div>
+    {/* =============== FOOTER SECTION =================== */}
+    {/* <div className={classes.footerSection }>
+      made with 💟 by dineshNikhil
+    </div> */}
     </React.Fragment>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import './App.css';
+// import './App.css';
 import Nav from './components/nav/Nav';
 import Home from './components/home/Home';
 import Login from './components/login/Login';
@@ -10,6 +10,8 @@ import UserPage from './components/user/UserPage';
 import SignUpForm from './components/login/SignUpForm';
 import AppEditPage from './components/appEditPage/AppEditPage';
 import AppAddingForm from './components/appsData/AppAddingForm';
+
+import classes from './App.module.css';
 
 function App() {
 
@@ -30,6 +32,10 @@ function App() {
           <Route path='/app-edit/:id' element={<AppEditPage />} />
       </Routes>
       </main>
+      {/* ====== FOOTER SECTION =========== */}
+      <div className={classes.footerSection }>
+        made with 💟 by dineshNikhil
+      </div>
     </React.Fragment>
   );
 }
