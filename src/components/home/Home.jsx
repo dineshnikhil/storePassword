@@ -33,7 +33,7 @@ function Home() {
     {/* ================== Home section =================  */}
     <div className={classes['home-section']}>
       <div className={classes.homeOneDiv}>
-        <h1>Secure and remember all your passwords… with a storePass..</h1>
+        <h1>Secure and remember all your passwords… with a storePass..hola</h1>
         <div>
           <Link to="/createAccount"><button className={classes.createBtn}>
             Create Account <FontAwesomeIcon style={{marginLeft: "20px"}} icon={faUser} />
