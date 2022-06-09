@@ -1,0 +1,7 @@
+.form {
+    width: 100%;
+    background-color: var(--secondary-color);
+    /* padding: 2%; */
+
+    border-radius: .5rem;
+}

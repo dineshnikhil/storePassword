@@ -1,0 +1,42 @@
+.input {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.inputLabel {
+    margin-bottom: 5%;
+}
+
+.inputField {
+    background-color: #040404a5;
+    color: var(--font-color);
+    font-size: 1.2rem;
+
+    padding: 3% 4%;
+    display: block;
+    width: 90%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+
+    border: 3px solid var(--secondary-color);
+    border-radius: .5rem;
+    outline: 3px solid var(--secondary-color);
+}
+
+.inputField:focus {
+    outline: 3px solid var(--primary-color);
+}
+
+.inputLabelDiv {
+    display: flex;
+    justify-content: space-between;
+    height: 1rem;
+
+    padding: 0 .5rem;
+}
+
+.inputLabelDiv span {
+    margin: 0;
+    color: var(--bg-color);
+    display: none;
+}

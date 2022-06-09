@@ -1,0 +1,23 @@
+.logBtn {
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+
+    border: 3px solid var(--secondary-color);
+    outline: 3px solid var(--secondary-color);
+    border-radius: .5rem;
+    width: 100%;
+
+    margin: 0 auto 4% auto;
+    padding: 2% 5%;
+
+    transition: .3s ease-in-out;
+}
+
+.logBtn:hover {
+    background-color: var(--demo-color);
+    outline: 3px solid var(--demo-color);
+    cursor: pointer;
+}

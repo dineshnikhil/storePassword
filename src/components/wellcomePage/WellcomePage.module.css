@@ -1,0 +1,49 @@
+.sectionOne {
+    display: flex;
+
+    padding: 7% 15%;
+}
+
+.oneOne {
+    width: 50%;
+    padding-top: 10%;
+}
+.oneTwo {
+    width: 50%;
+}
+
+.oneTwo img {
+    width: 80%;
+    height: auto;
+
+    display: block;
+    margin: 0 auto;
+}
+
+.sectionTwo {
+    background-color: var(--primary-color);
+    padding: 7% 15%;
+}
+
+.sectionThree {
+    display: flex;
+    justify-content: space-around;
+
+    padding: 7% 15%;
+}
+
+.threeCards {
+    background-color: #001219;
+    padding: 3% 2%;
+    text-align: center;
+    border-radius: .5rem;
+    margin: 2%;
+}
+
+.threeCards:hover {
+    background-color: #161a1d;
+}
+
+.threeCards h2 {
+    color: var(--primary-color);
+}

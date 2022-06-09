@@ -1,0 +1,58 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1% 3%;
+}
+
+.navFeatures {
+    display: flex;
+    justify-content: space-between;
+
+    width: 30%;
+    padding: 0 3%;
+}
+
+.username {
+    margin: auto 0;
+    font-size: 1.1rem;
+
+}
+
+.brandName {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin: auto 0;
+}
+
+.navLoginBtn {
+    background: var(--primary-color);
+    color: var(--font-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    border: none;
+    border-radius: .5rem;
+    padding: 2% 12%;
+    
+    transition: .3s ease-in-out;
+    text-decoration: none;
+}
+
+.navLoginBtn:hover {
+    cursor: pointer;
+    background-color: var(--demo-color);
+}
+
+.modeBtn {
+    font-size: 1.7rem;
+    color: var(--secondary-color);
+    margin: auto 0;
+
+    transition: .3s ease-in-out;
+}
+
+.modeBtn :hover {
+    cursor: pointer;
+    color: var(--primary-color);
+}
