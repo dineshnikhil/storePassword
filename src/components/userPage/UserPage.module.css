@@ -1,0 +1,35 @@
+.userpageOuterDiv {
+    padding: 7% 15%;
+}
+
+.userpageInnerDivOne input{
+    width: 60%;
+    padding: 1.5% 3%;
+    font-size: 1.1rem;
+    background-color: var(--bg2);
+
+    color: var(--font-color);
+    border: 3px solid var(--bg-color);
+    outline: 3px solid var(--bg-color);
+    border-radius: .5rem;
+}
+
+.appAddBtn {
+    margin-left: 18%;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    padding: 1% 4%;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+
+    border: 3px solid var(--bg-color);
+    border-radius: .5rem;
+    outline: 3px solid var(--bg-color);
+}
+
+.appAddBtn:hover {
+    outline: 3px solid var(--primary-color);
+    background-color: var(--demo-color);
+    cursor: pointer;
+}

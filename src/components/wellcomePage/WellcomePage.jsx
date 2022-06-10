@@ -40,6 +40,19 @@ function WellcomePage() {
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni exercitationem natus magnam.</p>
             </div>
         </div>
+        <div className={classes.fotter}>
+            <div className={classes.fotterOne}>
+                <h1>storePass</h1>
+                <button>Show Tech Stack</button>
+            </div>
+            <div className={classes.fotterTwo}>
+                <ul>
+                    <li>Home</li>
+                    <li>case Study</li>
+                    <li>features</li>
+                </ul>
+            </div>
+        </div>
     </React.Fragment>
   )
 }

@@ -2,8 +2,9 @@
   --bg-color: #040404;
   --font-color: #FFFFFF;
   --primary-color: #E51B0C;
-  /* --secondary-color: #565B62; */
   --secondary-color: #001219;
+  --bg2 : #001219;
+  --bg3 : #161a1d;
   --demo-color: hsla(4, 90%, 47%, 0.698);
   --green-color: #70e000;
 }

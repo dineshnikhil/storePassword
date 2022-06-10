@@ -31,8 +31,9 @@
     font-size: 1.1rem;
     font-weight: bold;
 
-    border: none;
+    border: 3px solid var(--bg-color);
     border-radius: .5rem;
+    outline: 3px solid var(--bg-color);
     padding: 2% 12%;
     
     transition: .3s ease-in-out;
@@ -40,8 +41,9 @@
 }
 
 .navLoginBtn:hover {
-    cursor: pointer;
+    outline: 3px solid var(--primary-color);
     background-color: var(--demo-color);
+    cursor: pointer;
 }
 
 .modeBtn {

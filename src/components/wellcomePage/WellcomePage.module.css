@@ -47,3 +47,49 @@
 .threeCards h2 {
     color: var(--primary-color);
 }
+
+.fotter {
+    background-color: #161a1d;
+    display: flex;
+    padding: 4% 12%;
+}
+
+.fotterOne {
+    width: 100%;
+}
+
+.fotterTwo {
+    width: 100%;
+}
+
+.fotterOne button {
+    padding: 2% 8%;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--primary-color);
+
+    border: 3px solid #161a1d;
+    outline: 3px solid #161a1d;
+    border-radius: .5rem;
+    color: var(--font-color);
+
+    transition: .3s ease-in-out;
+}
+
+.fotterOne button:hover {
+    background-color: var(--demo-color);
+    outline: 3px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.fotterTwo li {
+    list-style: none;
+    font-size: 1.2rem;
+    margin-bottom: 2%;
+    text-align: right;
+}
+
+.fotterTwo li:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
