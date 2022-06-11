@@ -2,9 +2,12 @@ import React from 'react'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+
 import Input from '../ui/input/Input'
 import LogBtn from '../ui/logBtn/LogBtn'
 import classes from './Login.module.css'
+import { userSliceActions } from '../../store/userSlice'
 
 
 // importing the image from the image file in src folder
@@ -13,6 +16,7 @@ import login from '../../images/login.svg'
 function Login(props) {
 
     const navigate = useNavigate()
+    const dispatch  = useDispatch();
 
     // use refs for form details
     const username = useRef();
@@ -23,10 +27,13 @@ function Login(props) {
 
     function submitHandler(event) {
         event.preventDefault();
-        console.log({
+        
+        dispatch(userSliceActions.loginUser({
+            isAuth: true,
             username: username.current.value,
-            password: password.current.value
-        });
+            id: "1",
+            apps: []
+        }))
 
         
 

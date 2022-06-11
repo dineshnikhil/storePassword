@@ -1,5 +1,5 @@
 .userpageOuterDiv {
-    padding: 7% 15%;
+    padding: 7% 7%;
 }
 
 .userpageInnerDivOne input{
@@ -32,4 +32,11 @@
     outline: 3px solid var(--primary-color);
     background-color: var(--demo-color);
     cursor: pointer;
+}
+
+.userpageInnerDivTwo {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 2% 0;
 }

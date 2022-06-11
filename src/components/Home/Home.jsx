@@ -1,16 +1,21 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Nav from '../Navigation/Nav'
 import UserPage from '../userPage/UserPage'
 import WellcomePage from '../wellcomePage/WellcomePage'
 
+import { userSliceAction } from '../../store/userSlice';
+
 
 function Home() {
-  const [userPage, setuserPage] = useState(false);
+  const dispatch = useDispatch();
+  const isAuth = useSelector(state => state.userSlice.isAuth)
+
   return (
     <React.Fragment>
         <Nav />
-        {userPage ? <WellcomePage /> : <UserPage />}
+        {isAuth ? <UserPage /> : <WellcomePage />}
     </React.Fragment>
   )
 }
