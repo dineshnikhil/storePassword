@@ -1,0 +1,49 @@
+.msgmodal{
+	position: fixed;
+	top: 10vh;
+	left: 20%;
+	width: 50%;
+	height: auto;
+	text-align: center;
+
+	margin: 0 auto;
+
+	background-color: var(--bg2);
+	border-radius: 10px;
+
+	padding: 2%;
+	z-index: 1310;
+
+	transition: visibility 0s, opacity 1s linear;
+}
+
+.msgmodal:hover {
+    background-color: var(--bg3);
+}
+
+.msgmodalTwo {
+    text-align: right;
+    margin-top: 8%;
+}
+
+.msgmodalTwo button {
+    background: var(--primary-color);
+    color: var(--font-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    border: 3px solid var(--bg3);
+    border-radius: .5rem;
+    outline: 3px solid var(--bg3);
+    padding: 1.3% 4%;
+    margin-left: 3%;
+    
+    transition: .3s ease-in-out;
+    text-decoration: none;
+}
+
+.msgmodalTwo button:hover {
+    outline: 3px solid var(--primary-color);
+    background-color: var(--demo-color);
+    cursor: pointer;
+}
