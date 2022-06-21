@@ -60,17 +60,17 @@ function AppEditPage() {
       <h1>Edit ✍🏻 your app data Here.</h1>
       <div className={classes.innerAppEditDiv}>
         <form onSubmit={submitHandler}>
-          <label>AppName</label>
+          <label className={classes.inputLabel}>AppName</label>
           <input 
             type="text"
             ref={appName}
           />
-          <label>Email</label>
+          <label className={classes.inputLabel}>Email</label>
           <input 
             type="text"
             ref={email}
           />
-          <label>Password</label>
+          <label className={classes.inputLabel}>Password</label>
           <input 
             type="text"
             ref={password}

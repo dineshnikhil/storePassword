@@ -23,11 +23,18 @@
 } */
 
 /* By default we have the dark mode in website. */
-:root {
+/* :root {
 	--bg-color: #1B262C;
 	--font-color: #BBE1FA;
 	--primary-color: #0F4C75;
 	--secondary-color: #3282B8;
+} */
+
+:root {
+	--bg-color: #0b090a;
+	--font-color: #ffffff;
+	--primary-color: #ba181b;
+	--secondary-color: #a4161a;
 }
 
 /* Here we are changing colors into the light mode. */
