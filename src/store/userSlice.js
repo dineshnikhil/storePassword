@@ -23,6 +23,10 @@ const userSlice = createSlice({
             state.username = action.payload.username;
             state.id = action.payload.id;
             state.apps = action.payload.apps;
+        },
+        // updating the app
+        updateApps(state, action) {
+            state.apps = action.payload;
         }
     }
 })

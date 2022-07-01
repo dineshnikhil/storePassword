@@ -30,29 +30,44 @@ function Login(props) {
     const msg = "dammn one"
     const [popupMsg, setPopupMsg] = useState("");
 
-    function submitHandler(event) {
+    async function submitHandler(event) {
         event.preventDefault();
 
-        if(username.current.value !== "dinesh") {
+        //Here i am sending the data from client to server
+        const response = await fetch("http://localhost:8000/login", {
+            method: 'POST',
+            headers: {
+                'content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username.current.value,
+                password: password.current.value
+            })
+        });
+
+        const data = await response.json();
+
+        if(data.status === "user not found") {
             // setting the msg to user not found
-            setPopupMsg("user not found!")
+            setPopupMsg(data.status)
             // showing the pop up alert
             dispatch(msgSliceActions.showMsg())
             // clearing the username input field
             username.current.value = ""
-        } else if(password.current.value !== "dinesh") {
+            password.current.value = ""
+        } else if(data.status === "entered password is worng!") {
             // setting the msg to password worng msg
-            setPopupMsg("Enterd password is worng!")
+            setPopupMsg(data.status)
             // showing the pop up alert
             dispatch(msgSliceActions.showMsg())
             // clearing the password input field
             password.current.value = ""
-        } else {
+        } else if(data.status === "user anthenticated!") {
             dispatch(userSliceActions.loginUser({
                 isAuth: true,
-                username: username.current.value,
-                id: "1",
-                apps: []
+                username: data.data.username,
+                id: data.data._id,
+                apps: data.data.appsData
             }))
             // clearing the useref values
             username.current.value = ""

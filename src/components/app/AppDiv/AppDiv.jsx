@@ -31,9 +31,9 @@ function AppDiv(props) {
         <div className={classes.grid}>
         {/* app name display */}
         <div className={classes.appInfoDiv}>
-            <h2>appName</h2>
-            <h4>email</h4>
-            {!isShown ? <p className={classes.passwordDiv}>---------</p> : <p className={classes.passwordDiv}>password</p>}
+            <h2>{props.data.appname}</h2>
+            <h4>{props.data.email}</h4>
+            {!isShown ? <p className={classes.passwordDiv}>---------</p> : <p className={classes.passwordDiv}>{props.data.password}</p>}
         </div>
         {/* action like edit and delete div */}
         <div className={classes.four}>
@@ -43,7 +43,7 @@ function AppDiv(props) {
             <button onClick={copyToClipboardHandler}>
             <FontAwesomeIcon icon={faCopy} />
             </button>
-            <Link to="/addapp"><button><FontAwesomeIcon icon={faPenToSquare} /></button></Link>
+            <Link to={`/editapp/${props.data._id}`}><button><FontAwesomeIcon icon={faPenToSquare} /></button></Link>
             <button><FontAwesomeIcon icon={faTrashCan} /></button>
         </div>
         </div>

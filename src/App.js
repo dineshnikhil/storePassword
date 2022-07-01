@@ -7,6 +7,7 @@ import Home from './components/Home/Home';
 import ForgotPass from './components/loginPage/ForgotPass';
 import Login from './components/loginPage/Login';
 import SignUp from './components/signUpPage/SignUp';
+import EditApp from './components/app/editAppPage/EditApp';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<SignUp />} />
           <Route path='/addapp' element={<AddApp />} />
+          <Route path='/editapp/:id' element={<EditApp />} />
           <Route path='/forgotPass' element={<ForgotPass />} />
         </Routes>
     </React.Fragment>

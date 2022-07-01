@@ -30,7 +30,11 @@
 .appInfoDiv h4 {
     font-size: 1rem;
     font-weight: normal;
-    margin-top: 2%;
+    margin-top: 1%;
+}
+
+.appInfoDiv p {
+    margin: 0;
 }
 
 .four {
